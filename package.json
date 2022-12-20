@@ -1,0 +1,19 @@
+{
+  "name": "js-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vlad1slav1vanov/node-js-training.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vlad1slav1vanov/node-js-training/issues"
+  },
+  "homepage": "https://github.com/Vlad1slav1vanov/node-js-training#readme"
+}
