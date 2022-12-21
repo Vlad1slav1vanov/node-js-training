@@ -5,6 +5,11 @@ module.exports = class Application {
   constructor() {
     this.emitter = new EventEmitter();
     this.server = this._createServer();
+    this.middlewares = [];
+  }
+
+  use(middleware) {
+
   }
 
   listen(port, callback) {
