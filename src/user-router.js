@@ -1,3 +1,4 @@
+const { query } = require('express');
 const Router = require('../framework/Router');
 
 const router = new Router();
@@ -8,17 +9,16 @@ const users = [
 ]
 
 router.get('/users', (req, res) =>{
-  res.writeHead(200, {
-    "Content-type": "application/json"
-  })
-  res.end(JSON.stringify(users));
+  if (req.params.id) {
+    return res.send(users.find(user => user.id == req.params.id));
+  }
+  res.send(users);
 })
 
 router.post('/users', (req, res) =>{
-  res.writeHead(200, {
-    "Content-type": "application/json"
-  })
-  res.end(JSON.stringify(users));
+  const user = req.body;
+  users.push(user)
+  res.send(users);
 })
 
 module.exports = router;
