@@ -1,13 +1,26 @@
-const Application = require('./framework/Application');
-const PORT = process.env.PORT || 9000;
-const jsonParser = require('./framework/parseJson');
-const urlParser = require('./framework/parseUrl');
-const app = new Application();
-const userRouter = require('./src/user-router');
 
+const PORT = process.env.PORT || 9000;
+const Application = require('./framework/Application');
+const userRouter = require('./src/user-router');
+const jsonParser = require('./framework/parseJson');
+const parseUrl = require('./framework/parseUrl');
+const mongoose = require('mongoose');
+
+const app = new Application()
 
 app.use(jsonParser);
-app.use(urlParser('http://localhost:9000'));
+app.use(parseUrl('http://localhost:9000'));
+
 app.addRouter(userRouter);
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+
+const start = async () => {
+    try {
+        await mongoose.connect('mongodb+srv://user:user@cluster0.aw0q8v4.mongodb.net/?retryWrites=true&w=majority')
+        app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+start()
