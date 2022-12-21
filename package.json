@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env MESSAGE=message123 node ./src/events.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
